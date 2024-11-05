@@ -1,0 +1,33 @@
+
+class GFG {
+    static void rotate(int mat[][]) {
+        // Code Here
+        int n = mat.length;
+       
+       //Transpose the matrix first
+       for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+               int temp = mat[i][j];
+               mat[i][j] = mat[j][i];
+               mat[j][i] = temp;
+            }
+        }
+        
+        
+        //Swap the elements of each row
+        int row = 0;
+        for(int[] arr : mat){
+            int i = 0 , j = arr.length - 1;
+            
+            while(i < j){
+              int temp = mat[row][i];
+               mat[row][i] = mat[row][j];
+               mat[row][j] = temp;  
+                i++;
+                j--;
+            }
+            row++;
+        }
+        
+    }
+}
